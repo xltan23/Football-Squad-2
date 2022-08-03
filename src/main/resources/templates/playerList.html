@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Full Name</td>
+            <td>Position</td>
+            <td>Ratings</td>
+            <td>Edit</td>
+            <td>Remove</td>
+        </tr>
+        <tr th:each="player : ${players}">
+            <td th:text="${player.id}"></td>
+            <td th:text="${player.fullName}"></td>
+            <td th:text="${player.position}"></td>
+            <td th:text="${player.ratings}"></td>
+            <td>
+                <form th:action="@{/football/player-to-edit}" th:object="${player}" method="POST">
+                    <input type="hidden" name="id" th:value="${player.id}">
+                    <input type="hidden" name="fullName" th:value="${player.fullName}">
+                    <input type="hidden" name="position" th:value="${player.position}">
+                    <input type="hidden" name="ratings" th:value="${player.ratings}">
+                    <input type="submit" value="Update">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/football/delete-player}" th:object="${player}" method="POST">
+                    <input type="hidden" name="id" th:value="${player.id}">
+                    <input type="hidden" name="fullName" th:value="${player.fullName}">
+                    <input type="hidden" name="position" th:value="${player.position}">
+                    <input type="hidden" name="ratings" th:value="${player.ratings}">
+                    <input type="submit" value="Delete">
+                </form>
+                
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

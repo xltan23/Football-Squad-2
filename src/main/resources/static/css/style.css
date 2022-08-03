@@ -1,0 +1,10 @@
+table {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table tr, td {
+    border: 1px solid black;
+}
