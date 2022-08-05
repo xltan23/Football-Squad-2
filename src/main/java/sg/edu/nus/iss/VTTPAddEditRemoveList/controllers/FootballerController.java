@@ -66,7 +66,7 @@ public class FootballerController {
         String newPosition = form.getFirst("position");
         String newRatings = form.getFirst("ratings");
 
-        fbSvc.addPlayer(new Footballer(sameId, newName, newPosition, newRatings));
+        fbSvc.addPlayer2(new Footballer(sameId, newName, newPosition, newRatings));
 
         return "redirect:/football/player-list";
     }

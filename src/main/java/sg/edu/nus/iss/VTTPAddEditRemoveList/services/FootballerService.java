@@ -15,6 +15,10 @@ public class FootballerService {
         players.add(new Footballer(f.getFullName(), f.getPosition(), f.getRatings()));
     }
 
+    public void addPlayer2(Footballer f) {
+        players.add(new Footballer(f.getId(), f.getFullName(), f.getPosition(), f.getRatings()));
+    }
+
     public void delPlayer(Footballer f) {
         Footballer toRemove = players.stream().filter(o -> o.getId().equals(f.getId())).findAny().orElse(null);
         players.remove(toRemove);
